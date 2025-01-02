@@ -1,12 +1,24 @@
 // src/App.js
-import React from "react";
-import SearchBankruptcy from "./components/SearchBankruptcy";
+
+import React, { useState } from 'react';
+import LoginComponent from './LoginComponent'; // Import LoginComponent
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Check if the user is authenticated from localStorage
+  const token = localStorage.getItem('pacerAuthToken');
+  if (token) {
+    setIsAuthenticated(true); // User is authenticated
+  }
+
   return (
-    <div className="App">
-      <h1>Pacer Bankruptcy Search</h1>
-      <SearchBankruptcy />
+    <div>
+      {isAuthenticated ? (
+        <div>Welcome! You are logged in.</div> // You can replace this with your main app's content
+      ) : (
+        <LoginComponent />
+      )}
     </div>
   );
 }
