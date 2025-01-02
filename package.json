@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "proxy": "https://pacer-api.example.com",
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
